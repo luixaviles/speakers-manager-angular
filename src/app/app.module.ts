@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { MaterialModule } from './material/material.module';
+import { SpeakersModule } from './speakers/speakers.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MaterialModule } from './material/material.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    SpeakersModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
