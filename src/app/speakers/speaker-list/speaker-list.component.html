@@ -1,3 +1,12 @@
-<p>
-  speaker-list works!
-</p>
+<div class="card-container">
+  <mat-card class="card-content" *ngFor="let speaker of speakers">
+      <img mat-card-image [src]="speaker.picture.large">
+    <mat-card-content>
+        <h3>
+            {{speaker.name.first}} {{speaker.name.last}}
+        </h3>
+        <p> {{speaker.location.street}}</p>
+        <p> {{speaker.phone}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

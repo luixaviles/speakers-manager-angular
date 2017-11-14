@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SpeakersRoutingModule } from './speakers-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
@@ -14,7 +15,8 @@ import { SpeakerService } from './shared/services/speaker.service';
   imports: [
     CommonModule,
     SpeakersRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   declarations: [SpeakersComponent, SpeakerListComponent, SpeakerEditComponent],
   providers: [SpeakerService]

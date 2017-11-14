@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SpeakerService } from '../shared/services/speaker.service';
+import { Speakers, Speaker } from '../shared/model';
 
 @Component({
   selector: 'sm-speaker-list',
@@ -8,9 +10,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SpeakerListComponent implements OnInit {
 
-  constructor() { }
+  speakers: Speaker[];
+
+  constructor(private speakerService: SpeakerService) { }
 
   ngOnInit() {
+    this.loadSpeakers();
   }
 
+  private loadSpeakers(): void {
+    this.speakerService.getSpeakers()
+    .subscribe((data: Speakers) => {
+      this.speakers = data.results;
+      console.log('speakers', this.speakers);
+    });
+  }
 }
