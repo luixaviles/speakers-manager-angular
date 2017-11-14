@@ -12,16 +12,29 @@
     </mat-nav-list>
   </mat-sidenav>
 
-<div>
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Speakers Manager App</span>
+  <div>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Speakers Manager App</span>
 
-  </mat-toolbar>
-</div>
+    </mat-toolbar>
+  </div>
 
-<router-outlet></router-outlet>
+  <nav>
+    <a>
+      <button mat-button color="primary" class="home-button" [routerLink]="'/speakers'">
+        Speakers
+      </button>
+    </a>
+    <a>
+      <button mat-button color="primary" class="home-button" [routerLink]="'/about'">
+        About
+      </button>
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
 
 </mat-sidenav-container>
