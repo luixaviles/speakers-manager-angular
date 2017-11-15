@@ -3,33 +3,39 @@ import { CommonModule } from '@angular/common';
 
 import {
   MatButtonModule,
+  MatInputModule,
   MatIconModule,
   MatToolbarModule,
   MatCardModule,
   MatSidenavModule,
   MatListModule,
-  MatDialogModule
+  MatDialogModule,
+  MatFormFieldModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     MatButtonModule,
+    MatInputModule,
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
     MatSidenavModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule
   ],
   exports: [
     MatButtonModule,
+    MatInputModule,
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
     MatSidenavModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule
   ],
   declarations: []
 })

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialog } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SpeakersRoutingModule } from './speakers-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
@@ -18,7 +19,9 @@ import { SpeakerAddComponent } from './speaker-add/speaker-add.component';
     CommonModule,
     SpeakersRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [SpeakersComponent, SpeakerListComponent, SpeakerEditComponent, SpeakerAddComponent],
   providers: [MatDialog, SpeakerService],
