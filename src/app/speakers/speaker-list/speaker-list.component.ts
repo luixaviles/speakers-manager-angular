@@ -2,10 +2,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { SpeakerDetailComponent } from '../speaker-detail/speaker-detail.component';
+import { SpeakerAddComponent } from '../speaker-add/speaker-add.component';
 import { SpeakerService } from '../shared/services/speaker.service';
-import { Speakers, Speaker } from '../shared/model';
-import { DialogType } from '../shared/model/enums/dialog-type';
-import { FormMode } from '../shared/model/enums/form-mode';
+import { Speakers, Speaker, SpeakerForm, FormMode } from '../shared/model';
 
 @Component({
   selector: 'sm-speaker-list',
@@ -15,7 +14,7 @@ import { FormMode } from '../shared/model/enums/form-mode';
 })
 export class SpeakerListComponent implements OnInit {
 
-  dialogRef: MatDialogRef<SpeakerDetailComponent>;
+  dialogRef: MatDialogRef<SpeakerForm>;
   speakers: Speaker[];
 
   constructor(private speakerService: SpeakerService,
@@ -32,7 +31,14 @@ export class SpeakerListComponent implements OnInit {
         speaker: speaker
       }
     });
+  }
 
+  onAddSpeaker() {
+    this.openSpeakerAddPopup({
+      data: {
+        formMode: FormMode.ADD
+      }
+    });
   }
 
   private loadSpeakers(): void {
@@ -44,11 +50,19 @@ export class SpeakerListComponent implements OnInit {
 
   private openSpeakerDetailPopup(params): void {
     this.dialogRef = this.dialog.open(SpeakerDetailComponent, params);
-    this.dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.afterClosed().subscribe((result: Speaker) => {
       if(result) {
-        console.log('result', result);
         const index = this.speakers.findIndex((s:Speaker) => s.id.value === result.id.value);
         this.speakers[index] = result;
+      }
+    });
+  }
+
+  private openSpeakerAddPopup(params): void {
+    this.dialogRef = this.dialog.open(SpeakerAddComponent, params);
+    this.dialogRef.afterClosed().subscribe((result: Speaker) => {
+      if(result) {
+        this.speakers.push(result);
       }
     });
   }

@@ -10,7 +10,8 @@ export class Speaker {
   location: LocationSpeaker;
   email: string;
   picture: PictureSpeaker;
-  registered: string
+  registered: string;
+  phone: string;
 
   constructor() {
     this.id = new IdSpeaker();

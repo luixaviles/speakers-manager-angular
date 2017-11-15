@@ -1,6 +1,10 @@
+<button mat-fab (click)="onAddSpeaker()">
+    <mat-icon>add</mat-icon>
+  </button>
+  
 <div class="card-container">
   <mat-card class="card-content" *ngFor="let speaker of speakers" (click)="onSelectSpeaker(speaker)">
-      <img mat-card-image [src]="speaker.picture.large">
+      <!-- <img mat-card-image [src]="speaker.picture.large"> -->
     <mat-card-content>
         <h3>
             {{speaker.name.first}} {{speaker.name.last}}

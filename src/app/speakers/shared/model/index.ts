@@ -1,4 +1,4 @@
 export { Speaker } from './speaker';
 export { Speakers } from './speakers';
-export { DialogType } from './enums/dialog-type';
+export { SpeakerForm } from './speaker-form';
 export { FormMode } from './enums/form-mode';
