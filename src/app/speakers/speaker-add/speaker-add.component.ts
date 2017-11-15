@@ -16,7 +16,6 @@ export class SpeakerAddComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<SpeakerAddComponent>,
               @Inject(MAT_DIALOG_DATA) private params: any) {
-
   }
 
   ngOnInit() {

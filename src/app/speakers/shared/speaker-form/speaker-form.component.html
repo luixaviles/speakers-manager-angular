@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<form class="speaker-form">
+  <p *ngIf="mode == formMode.VIEW">
+    <mat-slide-toggle (change)="onActivateEdit($event)">Edit Details</mat-slide-toggle>
+  </p>
+
+  <table class="speaker-field-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="speaker-field-width">
+          <input matInput placeholder="First name" [(ngModel)]="speaker.name.first" name="firstname" [disabled]="readOnlyMode">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="speaker-field-width">
+          <input matInput placeholder="Last name" [(ngModel)]="speaker.name.last" name="lastname" [disabled]="readOnlyMode">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    <mat-form-field class="speaker-field-width">
+      <textarea matInput placeholder="Address" [(ngModel)]="speaker.location.street" name="address" [disabled]="readOnlyMode">
+      </textarea>
+    </mat-form-field>
+  </p>
+
+  <table class="speaker-field-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="speaker-field-width">
+          <input matInput placeholder="City" [(ngModel)]="speaker.location.city" name="city" [disabled]="readOnlyMode">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="speaker-field-width">
+          <input matInput placeholder="State" [(ngModel)]="speaker.location.state" name="state" [disabled]="readOnlyMode">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="speaker-field-width">
+          <input matInput placeholder="Phone" [(ngModel)]="speaker.phone" name="phone" [disabled]="readOnlyMode">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<mat-dialog-actions *ngIf="!readOnlyMode" [attr.align]="'end'">
+  <button mat-button mat-dialog-close color="secondary">Close</button>
+  <button mat-raised-button color="primary" (click)="save(speaker)">Save</button>
+</mat-dialog-actions>
+
+<mat-dialog-actions *ngIf="readOnlyMode" [attr.align]="'end'">
+  <button mat-raised-button mat-dialog-close color="primary">Close</button>
+</mat-dialog-actions>
+

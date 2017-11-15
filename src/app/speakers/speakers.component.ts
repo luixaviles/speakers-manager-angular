@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { DialogType } from './shared/model';
 import { SpeakerAddComponent } from './speaker-add/speaker-add.component';
+
 @Component({
   selector: 'sm-speakers',
   templateUrl: './speakers.component.html',
@@ -19,17 +20,17 @@ export class SpeakersComponent implements OnInit {
   }
 
   onAddSpeaker() {
-    this.openAddSpeakerPopup({
+    this.openSpeakerAddPopup({
       data: {
         dialogType: DialogType.ADD
       }
     });
   }
 
-  private openAddSpeakerPopup(params): void {
+  private openSpeakerAddPopup(params): void {
     this.dialogRef = this.dialog.open(SpeakerAddComponent, params);
-    this.dialogRef.afterClosed().subscribe(paramsDialog => {
-      console.log('paramsDialog', paramsDialog);
+    this.dialogRef.afterClosed().subscribe(result => {
+      console.log('result', result);
     });
   }
 }
