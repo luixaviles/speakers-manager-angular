@@ -36,7 +36,7 @@ export class SpeakerListComponent implements OnInit {
   }
 
   private loadSpeakers(): void {
-    this.speakerService.getSpeakers()
+    this.speakerService.getAll()
     .subscribe((data: Speakers) => {
       this.speakers = data.results;
     });
@@ -45,7 +45,11 @@ export class SpeakerListComponent implements OnInit {
   private openSpeakerDetailPopup(params): void {
     this.dialogRef = this.dialog.open(SpeakerDetailComponent, params);
     this.dialogRef.afterClosed().subscribe(result => {
-      console.log('result', result);
+      if(result) {
+        console.log('result', result);
+        const index = this.speakers.findIndex((s:Speaker) => s.id.value === result.id.value);
+        this.speakers[index] = result;
+      }
     });
   }
 }

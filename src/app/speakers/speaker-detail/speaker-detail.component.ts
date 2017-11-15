@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Speaker } from '../shared/model';
 import { FormMode } from '../shared/model/enums/form-mode';
+import { SpeakerService } from '../shared/services/speaker.service';
 
 @Component({
   selector: 'sm-speaker-detail',
@@ -15,7 +16,8 @@ export class SpeakerDetailComponent implements OnInit {
   formMode: FormMode;
 
   constructor(private dialogRef: MatDialogRef<SpeakerDetailComponent>,
-              @Inject(MAT_DIALOG_DATA) private params: any) {
+              @Inject(MAT_DIALOG_DATA) private params: any,
+              private speakerService: SpeakerService) {
       this.speaker = params.speaker;
       this.formMode = params.formMode;
   }
@@ -25,6 +27,9 @@ export class SpeakerDetailComponent implements OnInit {
 
   onSave(speaker: Speaker) {
     //TODO save on Backend
-    this.dialogRef.close(speaker);
+    this.speakerService.update(speaker)
+    .subscribe((response: Speaker) => {
+      this.dialogRef.close(response);
+    });
   }
 }
