@@ -24,7 +24,6 @@ export class SpeakerDetailComponent implements OnInit {
   }
 
   onSave(speaker: Speaker) {
-    console.log('Going to save changes: ', speaker);
     //TODO save on Backend
     this.dialogRef.close(speaker);
   }

@@ -39,7 +39,6 @@ export class SpeakerListComponent implements OnInit {
     this.speakerService.getSpeakers()
     .subscribe((data: Speakers) => {
       this.speakers = data.results;
-      console.log('speakers', this.speakers);
     });
   }
 

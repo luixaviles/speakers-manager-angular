@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormControl, Validators } from '@angular/forms';
 
 import { Speaker } from '../shared/model';
 
@@ -11,7 +10,6 @@ import { Speaker } from '../shared/model';
   encapsulation: ViewEncapsulation.None
 })
 export class SpeakerAddComponent implements OnInit {
-  usernameFormControl = new FormControl('', [Validators.required]);
   speaker: Speaker = new Speaker();
 
   constructor(private dialogRef: MatDialogRef<SpeakerAddComponent>,
@@ -21,10 +19,8 @@ export class SpeakerAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSave() {
-    this.dialogRef.close({
-      speaker: this.speaker,
-      dialogType: this.params.dialogType
-    });
+  onAdd(speaker: Speaker) {
+    //TODO perform API request to save speaker.
+    this.dialogRef.close(speaker);
   }
 }
