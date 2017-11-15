@@ -4,7 +4,8 @@
   
 <div class="card-container">
   <mat-card class="card-content" *ngFor="let speaker of speakers" (click)="onSelectSpeaker(speaker)">
-      <!-- <img mat-card-image [src]="speaker.picture.large"> -->
+      <img mat-card-image *ngIf="speaker.picture.large" [src]="speaker.picture.large">
+      <img mat-card-image *ngIf="!speaker.picture.large" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
     <mat-card-content>
         <h3>
             {{speaker.name.first}} {{speaker.name.last}}

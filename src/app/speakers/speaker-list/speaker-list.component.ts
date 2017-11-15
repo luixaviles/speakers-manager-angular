@@ -28,7 +28,7 @@ export class SpeakerListComponent implements OnInit {
     this.openSpeakerDetailPopup({
       data: {
         formMode: FormMode.VIEW,
-        speaker: speaker
+        speakerId: speaker.id.value
       }
     });
   }

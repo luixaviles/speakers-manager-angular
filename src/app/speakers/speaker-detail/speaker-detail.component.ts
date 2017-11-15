@@ -11,17 +11,20 @@ import { SpeakerService } from '../shared/services/speaker.service';
   encapsulation: ViewEncapsulation.None
 })
 export class SpeakerDetailComponent implements OnInit, SpeakerForm {
-  speaker: Speaker;
+  speakerId: number | string;
+  speaker: Speaker = new Speaker();
   formMode: FormMode;
 
   constructor(private dialogRef: MatDialogRef<SpeakerDetailComponent>,
               @Inject(MAT_DIALOG_DATA) private params: any,
               private speakerService: SpeakerService) {
-    this.speaker = params.speaker;
+    this.speakerId = params.speakerId;
     this.formMode = params.formMode;
   }
 
   ngOnInit() {
+    this.speakerService.get(this.speakerId)
+      .subscribe((result: Speaker) => this.speaker = result);
   }
 
   onSave(speaker: Speaker) {
