@@ -51,8 +51,8 @@ export class SpeakerListComponent implements OnInit {
   private openSpeakerDetailPopup(params): void {
     this.dialogRef = this.dialog.open(SpeakerDetailComponent, params);
     this.dialogRef.afterClosed().subscribe((result: Speaker) => {
-      if(result) {
-        const index = this.speakers.findIndex((s:Speaker) => s.id.value === result.id.value);
+      if (result) {
+        const index = this.speakers.findIndex((s: Speaker) => s.id.value === result.id.value);
         this.speakers[index] = result;
       }
     });
@@ -61,7 +61,7 @@ export class SpeakerListComponent implements OnInit {
   private openSpeakerAddPopup(params): void {
     this.dialogRef = this.dialog.open(SpeakerAddComponent, params);
     this.dialogRef.afterClosed().subscribe((result: Speaker) => {
-      if(result) {
+      if (result) {
         this.speakers.push(result);
       }
     });
