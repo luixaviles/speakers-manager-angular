@@ -1,7 +1,7 @@
 import { IdSpeaker } from './id-speaker';
-import { Name } from './name'
-import { LocationSpeaker } from './location-speaker'
-import { PictureSpeaker } from './picture-speaker'
+import { Name } from './name';
+import { LocationSpeaker } from './location-speaker';
+import { PictureSpeaker } from './picture-speaker';
 
 export class Speaker {
   id: IdSpeaker;

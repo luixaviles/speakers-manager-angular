@@ -1,3 +1,1 @@
-export interface SpeakerForm {
-    
-}
+export interface SpeakerForm {}
