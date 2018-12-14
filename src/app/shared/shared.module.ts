@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
-import { AboutModule } from './about/about.module';
+import { AboutModule } from './components/about/about.module';
 
 @NgModule({
   imports: [

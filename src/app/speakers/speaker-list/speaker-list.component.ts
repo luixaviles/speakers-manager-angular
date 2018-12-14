@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { SpeakerDetailComponent } from '../speaker-detail/speaker-detail.component';
 import { SpeakerAddComponent } from '../speaker-add/speaker-add.component';
 import { SpeakerService } from '../shared/services/speaker.service';
-import { Speakers, Speaker, SpeakerForm, FormMode } from '../shared/model';
+import { Speakers, Speaker, SpeakerForm, FormMode } from '../shared/models';
 
 @Component({
   selector: 'sm-speaker-list',

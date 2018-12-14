@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { SpeakerService } from '../shared/services/speaker.service';
-import { Speaker, SpeakerForm, FormMode } from '../shared/model';
+import { Speaker, SpeakerForm, FormMode } from '../shared/models';
 
 @Component({
   selector: 'sm-speaker-add',

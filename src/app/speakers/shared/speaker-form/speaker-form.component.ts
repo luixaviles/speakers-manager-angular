@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material';
-import { Speaker } from '../model';
-import { FormMode } from '../model';
+import { Speaker } from '../models';
+import { FormMode } from '../models';
 
 @Component({
   selector: 'sm-speaker-form',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { Speaker, SpeakerForm, FormMode } from '../shared/model';
+import { Speaker, SpeakerForm, FormMode } from '../shared/models';
 import { SpeakerService } from '../shared/services/speaker.service';
 
 @Component({

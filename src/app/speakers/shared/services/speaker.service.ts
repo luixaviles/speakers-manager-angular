@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Speakers, Speaker } from '../model';
+import { Speakers, Speaker } from '../models';
 
 const SPEAKERS_URL = 'http://localhost:3000/speakers';
 

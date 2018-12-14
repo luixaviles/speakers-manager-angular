@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: 'app/shared/about/about.module#AboutModule',
+    loadChildren: 'app/shared/components/about/about.module#AboutModule',
     pathMatch: 'full'
   }
 ];
