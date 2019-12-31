@@ -28,7 +28,7 @@ export class SpeakerListComponent implements OnInit {
     this.openSpeakerDetailPopup({
       data: {
         formMode: FormMode.VIEW,
-        speakerId: speaker.id.value
+        speakerId: speaker.id
       }
     });
   }
@@ -43,8 +43,8 @@ export class SpeakerListComponent implements OnInit {
 
   private loadSpeakers(): void {
     this.speakerService.getAll()
-    .subscribe((data: Speakers) => {
-      this.speakers = data.results;
+    .subscribe((data: Speaker[]) => {
+      this.speakers = data;
     });
   }
 
@@ -52,7 +52,7 @@ export class SpeakerListComponent implements OnInit {
     this.dialogRef = this.dialog.open(SpeakerDetailComponent, params);
     this.dialogRef.afterClosed().subscribe((result: Speaker) => {
       if (result) {
-        const index = this.speakers.findIndex((s: Speaker) => s.id.value === result.id.value);
+        const index = this.speakers.findIndex((s: Speaker) => s.id === result.id);
         this.speakers[index] = result;
       }
     });

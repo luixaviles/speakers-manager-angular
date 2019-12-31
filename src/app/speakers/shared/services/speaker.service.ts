@@ -11,8 +11,8 @@ export class SpeakerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Observable<Speakers> {
-    return this.httpClient.get<Speakers>(`${SPEAKERS_URL}`);
+  getAll(): Observable<Speaker[]> {
+    return this.httpClient.get<Speaker[]>(`${SPEAKERS_URL}`);
   }
 
   get(id: number | string): Observable<Speaker> {
@@ -24,8 +24,7 @@ export class SpeakerService {
   }
 
   update(speaker: Speaker): Observable<Speaker> {
-    return this.httpClient.put<Speaker>(`${SPEAKERS_URL}/${speaker.id.value}`, speaker);
+    return this.httpClient.put<Speaker>(`${SPEAKERS_URL}/${speaker.id}`, speaker);
   }
-
 
 }
